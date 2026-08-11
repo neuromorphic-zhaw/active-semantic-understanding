@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "efficient-foveation"
+version = "1.0.0"
+description = "ADE20K-Object reproduction code for Efficient Semantic Understanding from Digital Foveation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24,<3",
+    "Pillow>=10",
+    "torch>=2.2",
+    "torchvision>=0.17",
+    "tqdm>=4.66",
+]
+
+[project.scripts]
+ade20k-prepare = "active_foveation.prepare:main"
+ade20k-train = "active_foveation.train:main"
+ade20k-evaluate = "active_foveation.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

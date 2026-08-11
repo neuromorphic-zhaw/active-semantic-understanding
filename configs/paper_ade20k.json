@@ -1,0 +1,51 @@
+{
+  "seed": 123,
+  "image_size": 512,
+  "fovea_size": 96,
+  "context_size": 128,
+  "samples_per_class": 3,
+  "min_center_distance": 72,
+  "object_box_padding": 0.15,
+  "saliency": {
+    "method": "itti_koch",
+    "preview_size": 128,
+    "pyramid_levels": 3
+  },
+  "fixation": {
+    "method": "winner_take_all",
+    "ior": "gaussian",
+    "ior_radius": 70,
+    "budgets": [4, 8, 12, 16, 20, 24]
+  },
+  "training": {
+    "baseline": {
+      "epochs": 15,
+      "batch_size": 12,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "dice_weight": 0.5
+    },
+    "fovea_only": {
+      "epochs": 30,
+      "batch_size": 64,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "dice_weight": 0.5
+    },
+    "fovea_context": {
+      "epochs": 30,
+      "batch_size": 64,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "dice_weight": 0.5
+    },
+    "full_object": {
+      "epochs": 30,
+      "batch_size": 64,
+      "learning_rate": 0.0001,
+      "weight_decay": 0.0001,
+      "dice_weight": 0.5,
+      "evaluation_view": "fovea_validation"
+    }
+  }
+}
